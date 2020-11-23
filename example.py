@@ -10,7 +10,7 @@ if __name__ == "__main__":
     fy = 1740.7188
 
     k_size = 5
-    far_cut = 2000
+    distance_threshold = 2000
     difference_threshold = 20
    
     color = np.load("examplePicture/color.npy")
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     depth = depth.astype(np.uint16)
     
     t1 = time.time()
-    normals_map = normalSpeed.depth_normal(depth, fx, fy, k_size, far_cut, difference_threshold)
+    normals_map = normalSpeed.depth_normal(depth, fx, fy, k_size, distance_threshold, difference_threshold)
     print("time used: ", time.time()-t1) 
     
     normals_map_bgr = normals_map[...,::-1] # rgb -> bgr
