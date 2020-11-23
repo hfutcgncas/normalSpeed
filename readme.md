@@ -25,7 +25,7 @@ In python:
 fx = 1736.0597
 fy = 1740.7188
 
-k_size = 5 # pixel, kernal size for compute the normal
+k_size = 5 # pixel, kernal size for computing the normal
 distance_threshold = 2000 # mm, 
                           # Ignore pixels beyond this distance.
 difference_threshold = 20 # mm, When computing normals,
