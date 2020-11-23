@@ -1,13 +1,8 @@
 # -*- coding: utf-8 -*-
-import sys
-sys.path.insert(0, "/home/liujianran/.local/lib/python3.5/site-packages")
-
 import numpy as np
 import time
 import cv2
-
 import normalSpeed
-import copy
 
 
 if __name__ == "__main__":
@@ -21,12 +16,13 @@ if __name__ == "__main__":
     color = np.load("examplePicture/color.npy")
     depth = np.load("examplePicture/depth.npy")
     depth = depth.astype(np.uint16)
-
+    
+    t1 = time.time()
+    normals_map = normalSpeed.depth_normal(depth, fx, fy, k_size, far_cut, difference_threshold)
+    print("time used: ", time.time()-t1) 
+    
+    normals_map_bgr = normals_map[...,::-1] # rgb -> bgr
     cv2.imshow('depth', 1.0*depth/np.max(depth))
     cv2.waitKey(0)
-
-    normals_map = normalSpeed.depth_normal(depth, fx, fy, k_size, far_cut, near_cut)
-
-    normals_map_bgr = normals_map[...,::-1]
     cv2.imshow('depth_n', normals_map_bgr)
     cv2.waitKey(0)
