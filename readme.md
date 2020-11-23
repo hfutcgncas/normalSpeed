@@ -1,7 +1,7 @@
 # normalSpeed
 A fast algorithm for comupting the normal of the depth img. And warp it by pybind11. Modified from the code in [PCL](http://docs.ros.org/en/hydro/api/pcl/html/surface__normal__modality_8h.html#a746a05c204b506eeb1e6051ad7c81ec9) .
 
-## pre requestment:
+## pre requirements:
 1. opencv3
 2. numpy
 3. [pybind11](https://github.com/pybind/pybind11)
