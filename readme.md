@@ -28,12 +28,12 @@ fy = 1740.7188
 k_size = 5 # pixel, kernal size for compute the normal
 distance_threshold = 2000 # mm, 
                           # Ignore pixels beyond this distance.
-near_cut = 20 # mm, When computing normals,
-              # ignore contributions of pixels 
-              # whose depth difference with the 
-              # central pixel is above this threshold.
+difference_threshold = 20 # mm, When computing normals,
+                          # ignore contributions of pixels 
+                          # whose depth difference with the 
+                          # central pixel is above this threshold.
 
-normals_map = normalSpeed.depth_normal(depth, fx, fy, k_size, distance_threshold, near_cut)
+normals_map = normalSpeed.depth_normal(depth, fx, fy, k_size, distance_threshold, difference_threshold)
 
 ```
 ## example
