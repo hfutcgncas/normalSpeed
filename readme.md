@@ -33,6 +33,7 @@ difference_threshold = 20 # mm, When computing normals,
                           # whose depth difference with the 
                           # central pixel is above this threshold.
 
+# depth - np.array, h x w depth image, in mm
 normals_map = normalSpeed.depth_normal(depth, fx, fy, k_size, distance_threshold, difference_threshold)
 
 ```
