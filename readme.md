@@ -22,19 +22,30 @@ cd .. && cp normalSpeed/normalSpeed.* ./
 In python:
 ```python
 
+"""
+The coordinate of depth and normal is in cv coordinate:
+    - x is horizontal
+    - y is down (to align to the actual pixel coordinates used in digital images)
+    - right-handed: positive z look-at direction
+"""
+
 fx = 1736.0597
 fy = 1740.7188
 
 k_size = 5 # pixel, kernal size for computing the normal
-distance_threshold = 2000 # mm, 
-                          # Ignore pixels beyond this distance.
-difference_threshold = 20 # mm, When computing normals,
-                          # ignore contributions of pixels 
-                          # whose depth difference with the 
-                          # central pixel is above this threshold.
+distance_threshold = 2000  # mm, 
+                           # Ignore pixels beyond this distance.
+difference_threshold = 20  # mm, When computing normals,
+                           # ignore contributions of pixels 
+                           # whose depth difference with the 
+                           # central pixel is above this threshold.
+point_into_surface = False  # Regular normal point out from the mesh
+							# surface
 
 # depth - np.array, h x w depth image, in mm
-normals_map = normalSpeed.depth_normal(depth, fx, fy, k_size, distance_threshold, difference_threshold)
+normals_map = normalSpeed.depth_normal(
+	depth, fx, fy, k_size, distance_threshold, difference_threshold, point_into_surface
+)
 
 ```
 ## example

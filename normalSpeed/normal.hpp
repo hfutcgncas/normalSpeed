@@ -10,5 +10,5 @@
 
 void accumBilateral(long delta, long i, long j, long *A, long *b, int threshold);
 cv::Mat depthNormals(const cv::Mat &src, float fx, float fy,  int kernel_size, int distance_threshold,
-                             int difference_threshold);
+                             int difference_threshold, bool norm_point_into_face);
 #endif
