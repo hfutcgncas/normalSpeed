@@ -52,3 +52,13 @@ normals_map = normalSpeed.depth_normal(
 ```bash
 python3 example.py
 ```
+
+You will get the normal map of a depth map as follows:
+
+- Input depth map:
+<div align=center><img width="80%" src="examplePicture/depth_view.jpg"/></div>
+
+- Output normal map:
+<div align=center><img width="80%" src="examplePicture/normal_out.jpg"/></div>
+
+

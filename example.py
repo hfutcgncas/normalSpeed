@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 import time
-from cv2 import imshow, waitKey
+from cv2 import imshow, waitKey, imwrite
 
 import normalSpeed
 
@@ -45,8 +45,14 @@ if __name__ == "__main__":
     print("normals_map_in z mean:",  normals_map_in[:, :, 2].mean())
 
     imshow('norm_out', norm2bgr(normals_map_out))
+    imwrite("examplePicture/normal_out.jpg", norm2bgr(normals_map_out))
+
     imshow('norm_in', norm2bgr(normals_map_in))
+    imwrite("examplePicture/normal_in.jpg", norm2bgr(normals_map_in))
+
     imshow('depth', depth2show(depth))
+    imwrite('examplePicture/depth_view.jpg', depth2show(depth))
+
     cmd = waitKey(0)
     if cmd == ord('q'):
         exit()
