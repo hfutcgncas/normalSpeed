@@ -27,13 +27,16 @@ void accumBilateral(long delta, long i, long j, long *A, long *b, int threshold)
  * \param distance_threshold   Ignore pixels beyond this distance.
  * \param difference_threshold When computing normals, ignore contributions of pixels whose
  *                             depth difference with the central pixel is above this threshold.
+ * \param norm_point_into_face If set True, return normal that point into mesh surface, else
+ *                             return regular normal point outside mesh. 
  */
 Mat depthNormals(const Mat &src, 
                  const float fx, 
                  const float fy,  
                  const int kernel_size, 
                  const int distance_threshold,
-                 const int difference_threshold)
+                 const int difference_threshold,
+				 const bool norm_point_into_face)
 {
   Mat normal = Mat::zeros(src.size(), CV_32FC4); 
   Mat dst_x  = Mat::zeros(src.size(), CV_32F);
@@ -101,7 +104,7 @@ Mat depthNormals(const Mat &src,
         float l_ny = static_cast<float>(fy * l_ddy);
         float l_nz = static_cast<float>(-l_det * l_d);
 
-        if(l_nz<0)
+        if(l_nz<0 && norm_point_into_face)
         {
           l_nx*=-1;
           l_ny*=-1;
