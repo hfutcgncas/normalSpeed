@@ -6,6 +6,9 @@ A fast algorithm for comupting the normal of the depth img. And warp it with pyb
 2. numpy
 3. [pybind11](https://github.com/pybind/pybind11):
    ```
+   pip3 install "pybind11[global]"
+   
+   # Or install from source code:
    git clone https://github.com/pybind/pybind11.git
    cd pybind11 && mkdir build && cd build && cmake .. 
    sudo make install
