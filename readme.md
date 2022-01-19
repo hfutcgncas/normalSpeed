@@ -4,7 +4,13 @@ A fast algorithm for comupting the normal of the depth img. And warp it with pyb
 ## pre requirements:
 1. opencv3
 2. numpy
-3. [pybind11](https://github.com/pybind/pybind11)
+3. [pybind11](https://github.com/pybind/pybind11):
+   ```
+   git clone https://github.com/pybind/pybind11.git
+   cd pybind11 && mkdir build && cd build && cmake .. 
+   sudo make install
+   pip3 install pybind11 --user
+   ```
 
 ## setup
 In bash:
